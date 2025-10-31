@@ -2,7 +2,7 @@ inductive F2 : Type
 | zero : F2
 | one : F2
 
-#check F2.rec
+-- #check F2.rec
 
 /-
 Lean 中自然数已经被定义了
@@ -11,7 +11,7 @@ inductive Nat : Type
 | succ (n : Nat): Nat
 -/
 
-#check Nat.rec
+-- #check Nat.rec
 
 
 -- def Nat.factorial : Nat → Nat :=
@@ -32,7 +32,7 @@ inductive Integer : Type
 
 -- def Or.swap (P Q : Prop) : Or P Q → Or Q P := Or.rec _ _
 
-#check Exists
+-- #check Exists
 
 inductive Exists' {α : Type} (p : α → Prop) : Prop
 | intro (w : α) (h : p w) : Exists' p

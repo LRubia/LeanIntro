@@ -5,11 +5,11 @@ example : Type := ∀ (n : ℕ), ZMod n
 example : Type := (n : ℕ) → ZMod n
 
 def FunctionType1 (α β : Type) : Type := α → β
-def FunctionType2 (α β : Type) : Type := Π (a : α), β
+def FunctionType2 (α β : Type) : Type := Π (_ : α), β
 
 example : FunctionType1 = FunctionType2 := rfl
 
-example : (fun x : ZMod 4 ↦ (2 * x + 1) ^ 2) = (fun x : ZMod 4 ↦ 1) := by
+example : (fun x : ZMod 4 ↦ (2 * x + 1) ^ 2) = (fun _ : ZMod 4 ↦ 1) := by
   ext x
   ring_nf
   simp [show (4 : ZMod 4) = 0 by rfl]

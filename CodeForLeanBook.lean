@@ -1,12 +1,12 @@
-import CodeForLeanBook.Exercise__Function.Sheet1
-import CodeForLeanBook.Exercise__Function.Sheet2
-import CodeForLeanBook.Exercise__Function.Sheet3
-import CodeForLeanBook.Exercise__Logic.Sheet1
-import CodeForLeanBook.Exercise__Logic.Sheet2
-import CodeForLeanBook.Exercise__Logic.Sheet3
-import CodeForLeanBook.Exercise__Logic.Sheet4
-import CodeForLeanBook.Exercise__Logic.Sheet5
-import CodeForLeanBook.Exercise__Logic.Sheet6
+-- import CodeForLeanBook.Exercise__Function.Sheet1
+-- import CodeForLeanBook.Exercise__Function.Sheet2
+-- import CodeForLeanBook.Exercise__Function.Sheet3
+-- import CodeForLeanBook.Exercise__Logic.Sheet1
+-- import CodeForLeanBook.Exercise__Logic.Sheet2
+-- import CodeForLeanBook.Exercise__Logic.Sheet3
+-- import CodeForLeanBook.Exercise__Logic.Sheet4
+-- import CodeForLeanBook.Exercise__Logic.Sheet5
+-- import CodeForLeanBook.Exercise__Logic.Sheet6
 import CodeForLeanBook.PartOne.ChapterOne.Example
 import CodeForLeanBook.PartOne.ChapterTwo.Function
 import CodeForLeanBook.PartOne.ChapterTwo.Inductive
