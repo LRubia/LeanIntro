@@ -100,7 +100,7 @@ def zero : PreExtension A B where
   ab := inferInstance
   f := AddMonoidHom.inl A B
   g := AddMonoidHom.snd A B
-  injective := by rintro a a' ⟨⟩; rfl --magic rintro empty constructor?
+  injective := by rintro a a' h; dsimp at h; rfl --magic rintro empty constructor?
   surjective b := ⟨(0, b), rfl⟩
   exact := by rintro ⟨a, b⟩; simp [eq_comm]
 
@@ -245,6 +245,7 @@ def tri_add_midext (E₁ E₂ E₃ : PreExtension A B) : PreExtension A B where
     erw [QuotientAddGroup.lift_mk]
     exact he1
   exact := by
+    -- rintro ⟨x, hx1, hx2⟩
     intro x --do NOT rintro ⟨x, hx1, hx2⟩
     induction x using QuotientAddGroup.induction_on with | H x =>
     rcases x with ⟨⟨a, b, c⟩, h1 : E₁.g a = E₂.g b, h2 : E₂.g b = E₃.g c⟩
@@ -605,6 +606,8 @@ def zeroAdd (E : PreExtension A B) :
     PreExtensionIso E (PreExtension.zero.add E) :=
     PreExtensionIso.trans (addZero _) (addComm _ _)
 
+-- set_option pp.all true
+-- set_option pp.proofs true
 @[simp]
 noncomputable def section_ofNegAdd (E : PreExtension A B) :
     AddMonoidHom B (E.neg.add E) where
@@ -615,6 +618,7 @@ noncomputable def section_ofNegAdd (E : PreExtension A B) :
           (0 |> Function.surjInv_eq E.surjective); rw[← ha]
         refine QuotientAddGroup.eq.2 ⟨a, by simp; exact AddMonoidHom.neg_apply E.f a⟩
       map_add' := by
+
         rintro b1 b2
         apply QuotientAddGroup.eq.2
         let diff := - (b1 + b2 |> Function.surjInv E.surjective) +
@@ -627,6 +631,7 @@ noncomputable def section_ofNegAdd (E : PreExtension A B) :
         simp only [PreExtension.neg_g, PreExtension.neg_f, AddSubgroup.mem_addSubgroupOf,
           AddSubgroup.coe_add, NegMemClass.coe_neg, Prod.neg_mk, Prod.mk_add_mk,
           AddMonoidHom.mem_range, AddMonoidHom.prod_apply, Prod.mk.injEq]  ---??? "and_self" fails!
+        -- simp_rw [and_self_iff]
         obtain ⟨a, ha⟩ := (E.exact diff).1 this
         refine ⟨-a, ?_, ?_⟩ <;>
         · erw [map_neg,AddMonoidHom.neg_apply,neg_neg, ha]

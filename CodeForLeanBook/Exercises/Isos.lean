@@ -2,20 +2,20 @@ import Mathlib
 suppress_compilation
 
 variable (G : Type) [Group G] (H : Subgroup G)
-#check AddSubgroup.map
-#check Subgroup.subgroupOf
-#check H ⊓ (⊤ : Subgroup G)
-#check QuotientGroup.map_mk'
-#check Subgroup.subgroupOf
-#check Subtype.val
-#check Subgroup.inclusion_inj
-#check Subgroup.sup_eq_closure
-#check Quotient.inductionOn'
-#check Quotient.inductionOn
-#check Quotient.mk'
-#check Quotient.mk
-#check @HMul.hMul (Set G) (Set G) (Set G)
-#check Abelianization.commutator_subset_ker
+-- #check AddSubgroup.map
+-- #check Subgroup.subgroupOf
+-- #check H ⊓ (⊤ : Subgroup G)
+-- #check QuotientGroup.map_mk'
+-- #check Subgroup.subgroupOf
+-- #check Subtype.val
+-- #check Subgroup.inclusion_inj
+-- #check Subgroup.sup_eq_closure
+-- #check Quotient.inductionOn'
+-- #check Quotient.inductionOn
+-- #check Quotient.mk'
+-- #check Quotient.mk
+-- #check @HMul.hMul (Set G) (Set G) (Set G)
+-- #check Abelianization.commutator_subset_ker
 
 /-shall i mark it with a noncomputable label? -/
 def qutoKer_eq_image (G H : Type) [Group G] [Group H] (ϕ : G →* H) : G ⧸ ϕ.ker ≃* ϕ.range := by
@@ -59,7 +59,7 @@ def qutoIntersect_eq_Mulquto (G : Type) [Group G] (H N : Subgroup G) [N.Normal] 
     simpa [QuotientGroup.leftRel_apply, Subgroup.mem_subgroupOf]
 
 variable (G : Type) [Group G] (N : Subgroup G) [N.Normal] (M : Subgroup G) [M.Normal] (h : N ≤ M)
-#check QuotientGroup.map N M (.id G) h
+-- #check QuotientGroup.map N M (.id G) h
 
 def quotQuotToQuot : (G ⧸ N) ⧸ (Subgroup.map (QuotientGroup.mk' N) M) ≃* G ⧸ M := by
   refine MulEquiv.ofBijective (QuotientGroup.lift _

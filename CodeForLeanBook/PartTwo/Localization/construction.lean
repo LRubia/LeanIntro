@@ -128,7 +128,7 @@ instance : IsLocalizedModule S (Algebra.ofId R (Localization S)).toLinearMap whe
         Localization.mk_eq_mk_iff, Localization.r_iff_exists, Submonoid.coe_mul, Subtype.exists,
         exists_prop, φ]
       exact ⟨1, by simp, by ring⟩
-  surj' := by
+  surj := by
     intro x
     induction x using Localization.induction_on with | H x =>
     rcases x with ⟨x, ⟨t, ht⟩⟩

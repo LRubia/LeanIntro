@@ -27,8 +27,14 @@ open Filter Topology Finset
 -- #check deriv_exp
 -- #check geom_sum_of_lt_one
 
--- theorem filter_eq : ∀ {f g : Filter α}, f.sets = g.sets → f = g
---   | ⟨_, _, _, _⟩, ⟨_, _, _, _⟩, rfl => rfl --归纳？
+theorem filter_eq (α : Type) : ∀ {f g : Filter α}, f.sets = g.sets → f = g
+  | ⟨a, b, c, d⟩, ⟨aa, bb, cc, dd⟩, hrfl => by
+    simp at hrfl
+    simp_rw [hrfl] --归纳？
+
+def fac : ℕ → ℕ
+| 0 => 1
+-- | (n + 1) => n * fac n
 
 /- exercise for serieslimit -/
 example : Tendsto (fun n : ℕ => n) atTop atTop := by

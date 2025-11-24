@@ -5,7 +5,7 @@ suppress_compilation
 variable {G : Type} [Group G] (H : Subgroup G)
 
 open Pointwise
-#check Ne
+-- #check Ne
 
 structure QGroup : Type where
   carrier : Set G
@@ -161,7 +161,9 @@ lemma gen_inv [H.Normal] (g : G) : (gen H g)⁻¹ = gen H g⁻¹ := by
   apply ext  --ext1
   change ((gen H g).out⁻¹ • H : Set G) = (gen H g⁻¹)
   simp [← gen_def, inv_eq_iff_eq_inv]
-  rcases out_eq_gentor_mul g with ⟨h, hh, hout⟩ -- rcases ... with ⟨h, hh, rfl⟩ takes mistakes
+  -- have : ∃ h, g = h ^ 2 * g:= sorry
+  -- rcases this with ⟨h, rfl⟩
+  rcases out_eq_gentor_mul ( H := H) g with ⟨h, hh, hout⟩ -- rcases ... with ⟨h, hh, rfl⟩ takes mistakes
   rw[hout]
   use g * h⁻¹ * g⁻¹ -- can refine ⟨_, ?_, simp [mul_assoc]⟩
   constructor

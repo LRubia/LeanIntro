@@ -1,12 +1,11 @@
--- import CodeForLeanBook.Exercise__Function.Sheet1
--- import CodeForLeanBook.Exercise__Function.Sheet2
--- import CodeForLeanBook.Exercise__Function.Sheet3
--- import CodeForLeanBook.Exercise__Logic.Sheet1
--- import CodeForLeanBook.Exercise__Logic.Sheet2
--- import CodeForLeanBook.Exercise__Logic.Sheet3
--- import CodeForLeanBook.Exercise__Logic.Sheet4
--- import CodeForLeanBook.Exercise__Logic.Sheet5
--- import CodeForLeanBook.Exercise__Logic.Sheet6
-import CodeForLeanBook.PartOne.ChapterOne.Example
-import CodeForLeanBook.PartOne.ChapterTwo.Function
-import CodeForLeanBook.PartOne.ChapterTwo.Inductive
+import CodeForLeanBook.Exercises.Zsqrtd
+import CodeForLeanBook.Exercises.BaerSum
+import CodeForLeanBook.Exercises.Isos
+import CodeForLeanBook.Exercises.Quotient
+import CodeForLeanBook.Exercises.Exercise1
+import CodeForLeanBook.Exercises.Exercise2
+import CodeForLeanBook.Exercises.Exercise3
+import CodeForLeanBook.Exercises.Exercise4_Calculus
+import CodeForLeanBook.Exercises.Exercise5_LinearAlgebra
+import CodeForLeanBook.Exercises.Exercise6_ElementaryNT
+import CodeForLeanBook.Exercises.Exercise7_Localization

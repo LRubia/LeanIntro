@@ -1,5 +1,4 @@
 import Mathlib
-import CodeForLeanBook.PartOne.ChapterTwo.Example
 --------自测-----------------------
 example (P : Prop) : (P → ¬ ¬ P) := by
   intro p np
