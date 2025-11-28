@@ -171,7 +171,7 @@ example (m n r : ℕ) : (m + n).choose r = ∑ k ∈ Finset.range (r + 1),
 
   let e₃ : { p : Finset (Fin m) × Finset (Fin n) | p.1.card + p.2.card = r } ≃
     Σ k : Fin (r + 1), { p : Finset (Fin m) × Finset (Fin n) | p.1.card = k ∧ p.2.card = r - k } :=
-    { toFun x := ⟨⟨x.1.1.card, by have : _ = _  := x.2; omega⟩, ⟨⟨x.1.1, x.1.2⟩, rfl, by
+    { toFun x := ⟨⟨x.1.1.card, by have : _ = _  := x.2; omega⟩, ⟨⟨x.1.1, x.1.2⟩, by rfl, by
         have : _ = _ := x.2; simpa using by omega⟩⟩
       invFun x := ⟨x.2.1, by
         simp only [Set.coe_setOf, Set.mem_setOf_eq, x.2.2.1, x.2.2.2]
@@ -225,7 +225,7 @@ lemma eq0 : -(1 - X : PowerSeries ℝ)⁻¹ = .mk fun _ => -1 := by
 lemma eq1 : (1 - 2 * X : PowerSeries ℝ)⁻¹ = .mk fun n => 2 ^ n := by
   rw [eq_comm, PowerSeries.eq_inv_iff_mul_eq_one (by simp), mul_comm]
   ext n
-  simp only [show (2 : PowerSeries ℝ) = C ℝ 2 from rfl, sub_mul, one_mul, mul_assoc, map_sub,
+  simp only [show (2 : PowerSeries ℝ) = C 2 from rfl, sub_mul, one_mul, mul_assoc, map_sub,
     coeff_mk, coeff_C_mul, coeff_one]
   rw [show X = X ^ 1 by ring, coeff_X_pow_mul']
   simp only [coeff_mk, mul_ite, mul_zero]
@@ -253,8 +253,8 @@ lemma F_eqn : F = - (1 - X)⁻¹ + 2 * (1 - 2 * X)⁻¹ := by
     _ = (1 - 3 * X + 2 * X ^ 2)⁻¹ := by
       rw [PowerSeries.eq_inv_iff_mul_eq_one (by simp), mul_comm]
       ext n
-      simp only [show (3 : PowerSeries ℝ) = C ℝ 3 from rfl,
-        show (2 : PowerSeries ℝ) = C ℝ 2 from rfl, add_mul, sub_mul, one_mul, mul_assoc, map_add,
+      simp only [show (3 : PowerSeries ℝ) = C 3 from rfl,
+        show (2 : PowerSeries ℝ) = C 2 from rfl, add_mul, sub_mul, one_mul, mul_assoc, map_add,
         map_sub, coeff_C_mul, coeff_X_pow_mul', mul_ite, mul_zero, coeff_one]
       rw [show X = X ^ 1 by ring, coeff_X_pow_mul']
       simp only [mul_ite, mul_zero]
@@ -285,8 +285,8 @@ lemma F_eqn : F = - (1 - X)⁻¹ + 2 * (1 - 2 * X)⁻¹ := by
 
 lemma f_eq (n : ℕ) : f n = 2 ^ (n + 1) - 1 := by
   have := F_eqn
-  have eq := congr($(F_eqn).coeff ℝ n)
-  rw [map_add, eq1, eq0, coeff_mk, show (2 : PowerSeries ℝ) = C ℝ 2 by rfl, coeff_C_mul,
+  have eq := congr($(F_eqn).coeff n)
+  rw [map_add, eq1, eq0, coeff_mk, show (2 : PowerSeries ℝ) = C 2 by rfl, coeff_C_mul,
     coeff_mk] at eq
   simp only [F, coeff_mk] at eq
   rify
